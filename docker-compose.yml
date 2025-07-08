@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  desktop:
+    image: dorowu/ubuntu-desktop-lxde-vnc
+    container_name: headless-desktop
+    ports:
+      - "8080:80"     # noVNC web client
+      - "5900:5900"   # optional VNC client
+    environment:
+      - USER=root
+      - PASSWORD=vncpassword
+      - RESOLUTION=1280x800
+    volumes:
+      - ./shared:/root/Desktop
+    restart: unless-stopped
