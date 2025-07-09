@@ -12,5 +12,7 @@ services:
       - PASSWORD=vncpassword
       - RESOLUTION=1280x800
     volumes:
+      - ./install.sh:/install.sh
       - ./shared:/root/Desktop
+    command: ../install.sh
     restart: unless-stopped
